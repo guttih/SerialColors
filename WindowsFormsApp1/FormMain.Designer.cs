@@ -53,12 +53,12 @@
             this.openClientFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hideOnStartupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.contextMenuTray = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.trayMenuItemShow = new System.Windows.Forms.ToolStripMenuItem();
             this.trayMenuItemHide = new System.Windows.Forms.ToolStripMenuItem();
             this.trayMenuItemExit = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.tbRed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbGreen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbBlue)).BeginInit();
@@ -281,12 +281,20 @@
             this.aboutToolStripMenuItem.ToolTipText = "Open ";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
             // notifyIcon1
             // 
             this.notifyIcon1.ContextMenuStrip = this.contextMenuTray;
             this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
             this.notifyIcon1.Text = "SerialColors";
             this.notifyIcon1.Visible = true;
+            this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
             // 
             // contextMenuTray
             // 
@@ -296,36 +304,31 @@
             this.trayMenuItemHide,
             this.trayMenuItemExit});
             this.contextMenuTray.Name = "contextMenuTray";
-            this.contextMenuTray.Size = new System.Drawing.Size(176, 70);
+            this.contextMenuTray.Size = new System.Drawing.Size(181, 92);
             this.contextMenuTray.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.contextMenuTray_ItemClicked);
             // 
             // trayMenuItemShow
             // 
             this.trayMenuItemShow.Name = "trayMenuItemShow";
-            this.trayMenuItemShow.Size = new System.Drawing.Size(175, 22);
+            this.trayMenuItemShow.Size = new System.Drawing.Size(180, 22);
             this.trayMenuItemShow.Text = "Show window";
             this.trayMenuItemShow.ToolTipText = "Show the application window";
+            this.trayMenuItemShow.Visible = false;
             // 
             // trayMenuItemHide
             // 
             this.trayMenuItemHide.Name = "trayMenuItemHide";
-            this.trayMenuItemHide.Size = new System.Drawing.Size(175, 22);
+            this.trayMenuItemHide.Size = new System.Drawing.Size(180, 22);
             this.trayMenuItemHide.Text = "Hide window";
             this.trayMenuItemHide.ToolTipText = "Hide the application window";
+            this.trayMenuItemHide.Visible = false;
             // 
             // trayMenuItemExit
             // 
             this.trayMenuItemExit.Name = "trayMenuItemExit";
-            this.trayMenuItemExit.Size = new System.Drawing.Size(175, 22);
+            this.trayMenuItemExit.Size = new System.Drawing.Size(180, 22);
             this.trayMenuItemExit.Text = "Exit the application";
             this.trayMenuItemExit.ToolTipText = "Exit the application";
-            // 
-            // exitToolStripMenuItem
-            // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
-            this.exitToolStripMenuItem.Text = "Exit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // FormMain
             // 

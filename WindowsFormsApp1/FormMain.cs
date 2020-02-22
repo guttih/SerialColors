@@ -32,6 +32,9 @@ namespace SerialColors
 
             if (!hasInitilized)
             {
+                trayMenuItemShow.Visible = !visabilityAllowed;
+                trayMenuItemHide.Visible = visabilityAllowed;
+
                 splash = new FormSplash("initializing...");
                 if (visabilityAllowed)
                     splash.Show();
@@ -40,18 +43,17 @@ namespace SerialColors
                 if (visabilityAllowed)
                     splash.Hide();
                 hasInitilized = true;
+                
             }
 
             SetButtonState();
 
-            trayMenuItemShow.Visible = !visabilityAllowed;
-            trayMenuItemHide.Visible = visabilityAllowed;
+            
         }
 
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            hideOnStartupToolStripMenuItem.Checked = Properties.Settings.Default.HideOnStartup;
         }
 
         protected override void SetVisibleCore(bool value)
@@ -515,6 +517,11 @@ namespace SerialColors
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+
         }
     }
 }

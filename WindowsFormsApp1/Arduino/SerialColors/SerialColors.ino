@@ -28,14 +28,15 @@ struct sColor {
 
 #ifdef ESP8266 
     // ESP8266 specific code here
-    const int redPin         = D2;
-    const int greenPin       = D4;
-    const int bluePin        = D5;
+    const char board[] = "ESP8266, pins D0,D1,D2";
+    const int redPin         = D0;
+    const int greenPin       = D1;
+    const int bluePin        = D2;
     const int resolution     = 4;
     const int MaxColorValue  = 1023;
 #elif defined (ESP32)
     // esp32 dev board
-
+    const char board[] = "ESP32, pins D26,D25,D33";
     //if you want bluetooth
    #ifdef USE_BLUETOOTH
         #include "BluetoothSerial.h"
@@ -99,6 +100,7 @@ struct sColor {
     
 #else 
     // Arduino Nano PWM pins
+    const char board[] = "Arduino Nano, pins D3,D5,D6";
     const int redPin         = 3;
     const int greenPin       = 5;
     const int bluePin        = 6;
@@ -190,13 +192,15 @@ void setup() {
     #ifdef ESP32
         setupEsp32Pins();
     #endif
-
+    
+    SerialPrintln("----------");
+    SerialPrintln("Board: " + String(board));
+    SerialPrintln(String("MaxColorValue:") + String(MaxColorValue));
     SerialPrintln(  String("startingColor: ") + 
                     String(startingColor) + 
                     String( "-> ") +
                     colorToString(decodeColor(startingColor))
     );
-    SerialPrintln(String("MaxColorValue:") + String(MaxColorValue));
     writeToAnalog(startingColor);
 }
 

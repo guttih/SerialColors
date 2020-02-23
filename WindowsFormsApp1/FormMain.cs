@@ -183,7 +183,7 @@ namespace SerialColors
                 Console.Write(sendString);
                 try { 
                     port.WriteLine(sendString);
-                    //Console.WriteLine(" -> " + ScolorToString(color));
+                    Console.WriteLine($"{ScolorToString(color)}=>({color.Red},{color.Green},{color.Blue})");
                 } catch (Exception exception)
                 {
                     Console.WriteLine("Exception :" +  exception.Message);

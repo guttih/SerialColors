@@ -107,7 +107,7 @@ struct sColor {
 #endif
 
 sColor color;
-void WriteToPins(uint8_t red, uint8_t green, uint8_t blue) {
+void WriteToPins(uint16_t red, uint16_t green, uint16_t blue) {
     #ifdef ESP32
         analogWriteEsp32(redPin,  red);
         analogWriteEsp32(greenPin,green);
@@ -135,11 +135,11 @@ void SerialPrintln(String text){
 
 void writeToAnalog(uint32_t uiColor) {
   color = decodeColor(uiColor);
-  color.r = color.r == 255 ? MaxColorValue : color.r *resolution;
-  color.g = color.g == 255 ? MaxColorValue : color.g *resolution;
-  color.b = color.b == 255 ? MaxColorValue : color.b *resolution;
+  //color.r = color.r == 255 ? MaxColorValue : color.r *resolution;
+  //color.g = color.g == 255 ? MaxColorValue : color.g *resolution;
+  //color.b = color.b == 255 ? MaxColorValue : color.b *resolution;
 
-  WriteToPins(color.r, color.g, color.b);
+  WriteToPins(color.r*resolution, color.g*resolution, color.b*resolution);
 }
 
 sColor decodeColor(uint32_t uiColor) {
